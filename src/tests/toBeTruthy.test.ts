@@ -1,12 +1,3 @@
-test('two plus two is four', () => {
-  expect(2 + 2).toBe(4);
-});
-
-test('object assignment', () => {
-  const data:any = {one: 1};
-  data['two'] = 2;
-  expect(data).toEqual({one: 1, two: 2});
-});
 
 test('null', () => {
   const n = null;
@@ -26,9 +17,13 @@ test('zero', () => {
   expect(z).toBeFalsy();
 });
 
-
-test('but there is a "stop" in Christoph', () => {
-  expect('Christoph').toMatch(/stop/);
+test('null', () => {
+  const n = null;
+  expect(n).toBeNull();
+  expect(n).toBeDefined();
+  expect(n).not.toBeUndefined();
+  expect(n).not.toBeTruthy();
+  expect(n).toBeFalsy();
+  expect(0).toBeFalsy();
+  expect("0").toBeTruthy();
 });
-
-

@@ -4,11 +4,23 @@ sample test,
 
 TextField test
 
+기본적으로 테스트는 다음과 같은 패턴으로 작성한다.
+
+```js
+test("테스트 설명", () => {
+  expect("검증 대상").toXxx("기대 결과");
+});
+```
+
 ## matcher
+
+위의 .toXxx 부분에서 사용되는 흔히 test Matcher라고 한다.
 
 ### toBe
 
 toBe는 Object.is를 사용하여 정확한 동일성을 테스트한다.
+
+숫자나 문자같은 객체가 아닌 원시값을 비교할 때 사용된다.
 
 ```js
 test('two plus two is four', () => {
@@ -29,6 +41,15 @@ test('object assignment', () => {
   const data = {one: 1};
   data['two'] = 2;
   expect(data).toEqual({one: 1, two: 2});
+});
+```
+
+```js
+test("return a user object", () => {
+  expect(getUser(1)).toEqual({
+    id: 1,
+    email: `user1@test.com`,
+  });
 });
 ```
 
@@ -54,6 +75,8 @@ test('null', () => {
   expect(n).not.toBeUndefined();
   expect(n).not.toBeTruthy();
   expect(n).toBeFalsy();
+  expect(0).toBeFalsy();
+  expect("0").toBeTruthy();
 });
 
 test('zero', () => {
@@ -95,3 +118,4 @@ test('but there is a "stop" in Christoph', () => {
 ```
 
 <https://jestjs.io/docs/using-matchers>
+
