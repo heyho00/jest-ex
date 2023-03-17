@@ -70,3 +70,15 @@ test('adding positive numbers is not zero', () => {
 .
 
 tests 폴더에 ...
+
+<br>
+
+## Jest로 테스트 전/후 처리하기
+
+다음 파일들 사용.
+
+src/data.js
+
+src/userService.js
+
+src/userService.test.js
